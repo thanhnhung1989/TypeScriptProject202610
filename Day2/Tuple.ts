@@ -39,5 +39,5 @@ function getValidAdminUsers(users: TestCaseUser[]): string[] {
   return result;
 }
 
-// let validUsers = getValidAdminUsers(testUser);
-// console.log("Valid Admin Users:", validUsers);
+let validUsers = getValidAdminUsers(testUser);
+console.log("Valid Admin Users:", validUsers);
