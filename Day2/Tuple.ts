@@ -27,17 +27,8 @@ let testUser: TestCaseUser[] = [
 ];
 
 function getValidAdminUsers(users: TestCaseUser[]): string[] {
-  let result: string[] = [];
-  for (let user of users) {
-    if (user.role === "admin" && user.age >= 18) {
-      console.log(
-        `Valid Admin User: ${user.userName}, Age: ${user.age}, Email: ${user.email}`,
-      );
-      result.push(user.userName);
-    }
-  }
-  return result;
+  return users
+    .filter((user) => user.role === "admin" && user.age >= 18)
+    .map((user) => user.userName);
 }
-
-// let validUsers = getValidAdminUsers(testUser);
-// console.log("Valid Admin Users:", validUsers);
+console.log(getValidAdminUsers(testUser)); // Output: ["JaneDoe1"]
