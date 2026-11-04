@@ -1,8 +1,8 @@
 type HeaderPair = [string, string];
-let headerObject: HeaderPair[] = [
-  ["Authorization", "Bearer token123"],
-  ["Content-Type", "application/json"],
-];
+function convertToHeaderObject(headers: HeaderPair[]): Record<string, string> {
+  return Object.fromEntries(headers); // chuyen doi array thanh object
+}
+const inputHeaders: HeaderPair[] = [["Content-Type", "application/json"]];
 function convertHeadersToObject(headers: HeaderPair[]): Record<string, string> {
   let result: Record<string, string> = {};
   for (let header of headers) {
@@ -10,4 +10,4 @@ function convertHeadersToObject(headers: HeaderPair[]): Record<string, string> {
   }
   return result;
 }
-console.log(convertHeadersToObject(headerObject)); // Output: { Authorization: "Bearer token123",
+console.log(convertHeadersToObject(inputHeaders)); // Output: { "Content-Type": "application/json" }
